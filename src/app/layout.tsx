@@ -9,12 +9,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     const cookieStore = cookies();
-    if (!cookieStore.has('theme')) cookieStore.set('theme', 'sunset');
-
-    const theme = cookieStore.get('theme');
+    const theme = cookieStore.get('theme')?.value;
 
     return (
-        <html lang="kr" data-theme={theme!.value}>
+        <html lang="kr" data-theme={theme}>
             <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
             </head>
