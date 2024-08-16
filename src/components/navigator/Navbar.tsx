@@ -20,7 +20,11 @@ const Navbar = () => {
 };
 
 const Logo = () => {
-    return <a className="btn btn-ghost text-xl">2ast.log</a>;
+    return (
+        <a className="btn btn-ghost text-xl" href="/">
+            2ast.log
+        </a>
+    );
 };
 
 export default Navbar;

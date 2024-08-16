@@ -5,9 +5,8 @@ import { usePathname } from 'next/navigation';
 
 const NavDropDown = () => {
     const isInPath = (name: string) => {
-        console.log(usePathname().split('/'));
         const path = '/' + usePathname().split('/')[1];
-        return path === getPathByName(name) && name !== 'HOME';
+        return path === getPathByName(name);
     };
 
     return (
@@ -29,7 +28,12 @@ const NavDropDown = () => {
             </summary>
             <ul tabIndex={0} className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow-xl">
                 {getNavItems().map((nav) => (
-                    <NavDropDownItem name={nav.name} href={nav.path} isCorrectPath={isInPath(nav.name)} />
+                    <NavDropDownItem
+                        key={nav.name}
+                        name={nav.name}
+                        href={nav.path}
+                        isCorrectPath={isInPath(nav.name)}
+                    />
                 ))}
             </ul>
         </details>

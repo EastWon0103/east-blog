@@ -5,16 +5,15 @@ import { usePathname } from 'next/navigation';
 
 const NavTab = ({ href, name }) => {
     const isInPath = (name: string) => {
-        console.log(usePathname().split('/'));
         const path = '/' + usePathname().split('/')[1];
-        return path === getPathByName(name) && name !== 'HOME';
+        return path === getPathByName(name);
     };
 
     if (isInPath(name)) {
         return (
             <li>
                 <Link href={href} role="tab" className="btn btn-ghost">
-                    <div className="underline decoration-2 underline-offset-[12px]">{name}</div>
+                    <div className="text-base-content font-extrabold">{name}</div>
                 </Link>
             </li>
         );
@@ -22,7 +21,7 @@ const NavTab = ({ href, name }) => {
     return (
         <li>
             <Link href={href} role="tab" className="btn btn-ghost">
-                {name}
+                <div className="text-base-content/65">{name}</div>
             </Link>
         </li>
     );
